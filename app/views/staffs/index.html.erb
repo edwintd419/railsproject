@@ -1,0 +1,49 @@
+
+
+<% if user_signed_in? %>
+
+<table class="table table-secondary table-hover table-bordered border-white ">
+  <thead >
+    <tr>
+      <th>Name</th>
+      
+      <th>gender</th>
+      <th>Role</th>
+      <th>salary</th>
+      
+      <th > </th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <% @staffs.each do |staff| %>
+     
+     <% if staff.user == current_user %>
+      <tr>
+        <td><%= link_to staff.first_name + '' +staff.last_name , staff %> </td>
+        
+     
+        <td><%= staff.gender %></td>
+        <td><%= staff.role %></td>
+        <td><%= staff.salary %></td>
+        
+        
+        
+        <td><%= link_to 'Delete', staff, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm"%></td>
+       
+      </tr>
+      <% end %>
+    <% end %>
+  </tbody>
+</table>
+
+<br/>
+
+<%= link_to 'New Staff', new_staff_path, class:"btn btn-outline-secondary" %>
+<button type="button" class="btn btn-outline-secondary">Secondary</button>
+<% else %>
+
+<h1>Home page</h1>
+
+
+<% end %>
