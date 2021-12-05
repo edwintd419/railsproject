@@ -1,7 +1,7 @@
 class StaffsController < ApplicationController
   before_action :set_staff, only: %i[ show edit update destroy ]
   before_action :authenticate_user!, excepty: [:index, :show]
-  #before_action :correct_user, only: [:edit, :update, :destroy]
+  before_action :correct_user, only: [:edit, :update, :destroy]
 
 
   # GET /staffs or /staffs.json
@@ -15,8 +15,8 @@ class StaffsController < ApplicationController
 
   #GET /staffs/new
   def new
-    @staff = Staff.new
-    #@staff = current_user.staffs.build
+    
+    @staff = current_user.staff.build
   end
 
   
@@ -28,8 +28,8 @@ class StaffsController < ApplicationController
 
   # POST /staffs or /staffs.json
   def create
-    @staff = Staff.new(staff_params)
-    #@staff = current_user.staffs.build(staff_params)
+    
+    @staff = current_user.staff.build(staff_params)
 
     respond_to do |format|
       if @staff.save
@@ -66,7 +66,7 @@ class StaffsController < ApplicationController
 
   def correct_user
     @Staff = current_user.staffs.find_by(id: params[:id])
-    redirect_to staffs_path, notice: "Not authenticate_user to edit " if @staffs.nill?
+    redirect_to staffs_path, notice: "Not authenticate_user to edit " if @staffs.nil?
   end
 
   private
