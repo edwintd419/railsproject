@@ -1,0 +1,64 @@
+
+
+
+
+
+<table class="table table-secondary table-hover table-bordered border-white ">
+  <thead >
+    <tr>
+      <th>Company Name</th>
+      
+      <th>Company email</th>
+      
+      <th>Company phone</th>
+      <th> </th>
+     
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <% @companies.each do |company| %>
+     
+     
+      <tr>
+       
+        
+     
+        <td><%= company.C_name %></td>
+        <td><%= company.C_email %></td>
+        <td><%= company.phone%></td>
+        
+        
+       
+     <td><%= link_to 'show', company, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        
+       <% end %>
+      </tr>
+      
+    </tbody>
+ 
+</table>
+ 
+
+<%= link_to 'New Company', new_company_path, class:"btn btn-secondary" %>
+<br/><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/><br/><br/><br/><br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+<br/>
+
+<%= render "shared/nav" %>

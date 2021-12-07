@@ -41,9 +41,11 @@
 
 <%= link_to 'New Staff', new_staff_path, class:"btn btn-outline-secondary" %>
 <button type="button" class="btn btn-outline-secondary">Secondary</button>
+
 <% else %>
 
 <h1>Home page</h1>
 
 
 <% end %>
+<%= render "shared/nav" %>

@@ -1,0 +1,22 @@
+
+
+<div class="jumbotron">
+  <h1 class="display-4"><%= @company.C_name %></h1>
+  
+  <hr class="my-4">
+  <p><%= @company.C_email %></p>
+  <p><%= @company.phone %></p>
+    
+  </p>
+</div>
+
+
+<%= link_to 'Edit', edit_company_path(@company), class:"btn btn-secondary" %>
+
+
+<%= link_to 'Back', companies_path, class:"btn btn-secondary" %>
+
+
+
+
+<%= render "shared/nav" %>
